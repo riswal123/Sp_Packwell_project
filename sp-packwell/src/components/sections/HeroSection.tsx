@@ -2,22 +2,24 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Play, CheckCircle2, ChevronDown } from "lucide-react";
+import { ArrowRight, CheckCircle2, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const slides = [
   {
-    tag: "🏭 Manufacturer Direct",
+    tag: "🏭 Manufacturer Direct — Aurangabad",
     headline: "Premium BOPP",
     highlight: "Packaging Tape",
-    sub: "Manufacturer",
+    sub: "BOPP Plain & Brown Tape",
     description:
-      "SP Packwell manufactures high-performance BOPP tapes trusted by 2,500+ businesses across India. Direct factory pricing, consistent quality, pan-India delivery.",
+      "SP Packwell manufactures high-performance BOPP tapes, packing materials, chemicals & fasteners. Trusted by 2,500+ businesses across India. Direct factory pricing from Waluj MIDC, Aurangabad.",
     cta: "Explore Products",
     ctaHref: "/products",
     secondaryCta: "Get B2B Quote",
     secondaryHref: "/quote",
+    image: "/images/products/plain-tape-1.jpg",
     gradient: "from-slate-900 via-slate-800 to-brand-950",
     accent: "brand",
   },
@@ -32,8 +34,24 @@ const slides = [
     ctaHref: "/products/custom-printed-bopp-tape",
     secondaryCta: "Request Sample",
     secondaryHref: "/quote",
+    image: "/images/products/printed-tape-1.jpg",
     gradient: "from-slate-900 via-slate-800 to-slate-900",
     accent: "purple",
+  },
+  {
+    tag: "📦 Complete Range",
+    headline: "Bubble Wrap &",
+    highlight: "Stretch Film",
+    sub: "Protective Packaging",
+    description:
+      "Beyond tape — SP Packwell supplies bubble wrap, stretch film, PP strapping, desiccant pouches, and safety PPE for complete packaging solutions.",
+    cta: "View All Products",
+    ctaHref: "/products",
+    secondaryCta: "Get Quote",
+    secondaryHref: "/quote",
+    image: "/images/products/bubble-wrap-1.jpg",
+    gradient: "from-slate-900 via-slate-800 to-slate-900",
+    accent: "green",
   },
   {
     tag: "🤝 Gayatri Enterprises",
@@ -46,6 +64,7 @@ const slides = [
     ctaHref: "/contact",
     secondaryCta: "View Products",
     secondaryHref: "/products",
+    image: "/images/hero/company-strip.jpg",
     gradient: "from-slate-900 via-slate-800 to-slate-900",
     accent: "green",
   },
@@ -156,11 +175,24 @@ export default function HeroSection() {
                   className="relative"
                 >
                   {/* Main card */}
-                  <div className="glass rounded-2xl p-8 border border-white/10">
-                    <div className="text-6xl mb-4">📦</div>
-                    <h3 className="text-2xl font-display font-bold text-white mb-2">
-                      {slide.sub}
-                    </h3>
+                  <div className="glass rounded-2xl overflow-hidden border border-white/10">
+                    {/* Product image */}
+                    <div className="relative h-52 w-full">
+                      <Image
+                        src={slide.image}
+                        alt={slide.sub}
+                        fill
+                        className="object-cover"
+                        priority
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
+                      <div className="absolute bottom-4 left-4">
+                        <h3 className="text-xl font-display font-bold text-white">
+                          {slide.sub}
+                        </h3>
+                      </div>
+                    </div>
+                    <div className="p-6">
                     <p className="text-slate-400 text-sm mb-6">
                       Available in 2&quot;, 2.5&quot;, 3&quot;, 4&quot; widths · 30–300 mtr lengths
                     </p>
@@ -179,6 +211,7 @@ export default function HeroSection() {
                       <Button asChild size="sm" variant="gradient">
                         <Link href="/quote">Get Quote</Link>
                       </Button>
+                    </div>
                     </div>
                   </div>
 

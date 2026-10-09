@@ -1,16 +1,17 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Award, Factory, Users, Globe } from "lucide-react";
 
 const milestones = [
-  { year: "2009", event: "SP Packwell founded in Maharashtra" },
-  { year: "2012", event: "First automated BOPP coating line installed" },
-  { year: "2015", event: "Gayatri Enterprises partnership established" },
-  { year: "2018", event: "Expanded to custom printed tape division" },
-  { year: "2021", event: "Desiccant pouches product line launched" },
-  { year: "2024", event: "Pan-India distribution across 18+ states" },
+  { year: "2009", event: "SP Packwell founded by Mr. Sunil Riswal in Aurangabad" },
+  { year: "2012", event: "First automated BOPP coating line installed at Waluj MIDC" },
+  { year: "2015", event: "Gayatri Enterprises partnership established for distribution" },
+  { year: "2018", event: "Expanded to custom printed tape & packing materials division" },
+  { year: "2021", event: "Added PPE, chemicals & swimming pool products to catalog" },
+  { year: "2024", event: "Pan-India distribution across 18+ states serving 2,500+ clients" },
 ];
 
 const highlights = [
@@ -18,6 +19,15 @@ const highlights = [
   { icon: Award, label: "Years of Excellence", value: "15+" },
   { icon: Users, label: "Workforce", value: "120+" },
   { icon: Globe, label: "States Served", value: "18+" },
+];
+
+const factoryImages = [
+  { src: "/images/factory/factory-1.jpg", alt: "SP Packwell Factory Floor" },
+  { src: "/images/factory/factory-2.jpg", alt: "BOPP Tape Production Line" },
+  { src: "/images/factory/factory-3.jpg", alt: "Quality Control" },
+  { src: "/images/factory/factory-4.jpg", alt: "Finished Products" },
+  { src: "/images/factory/factory-5.jpg", alt: "Packaging Station" },
+  { src: "/images/factory/factory-6.jpg", alt: "Warehouse" },
 ];
 
 export default function AboutHero() {
@@ -59,6 +69,33 @@ export default function AboutHero() {
               <div className="text-sm text-slate-400">{h.label}</div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Factory photos grid */}
+        <div className="mb-16">
+          <h2 className="text-2xl font-display font-bold text-white text-center mb-8">
+            Inside Our Factory
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {factoryImages.map((img, i) => (
+              <motion.div
+                key={img.src}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: i * 0.08 }}
+                className="relative h-44 rounded-xl overflow-hidden"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <div className="absolute bottom-2 left-3 text-white text-xs font-medium">{img.alt}</div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Timeline */}

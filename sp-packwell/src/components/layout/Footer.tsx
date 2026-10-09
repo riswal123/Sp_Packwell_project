@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { Package, Phone, Mail, MapPin, MessageCircle, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { Phone, Mail, MapPin, MessageCircle, ArrowRight } from "lucide-react";
 import { categoryMeta } from "@/data/products";
 import { WHATSAPP_NUMBER } from "@/lib/utils";
 
@@ -60,34 +61,68 @@ export default function Footer() {
       {/* Main footer */}
       <div className="container-max px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-brand-500 flex items-center justify-center">
-                <Package className="h-5 w-5 text-white" />
+            {/* Real logo */}
+            <Link href="/" className="flex items-center gap-3 mb-5">
+              <div className="relative w-12 h-12 shrink-0 bg-white rounded-lg overflow-hidden">
+                <Image
+                  src="/images/logo.jpg"
+                  alt="SP Packwell Logo"
+                  fill
+                  className="object-contain p-0.5"
+                />
               </div>
               <div>
                 <div className="font-display font-bold text-white text-lg leading-tight">SP Packwell</div>
-                <div className="text-xs text-slate-400 leading-tight">Premium Packaging Solutions</div>
+                <div className="text-xs text-slate-400 leading-tight">Manufacturer of BOPP Tapes</div>
               </div>
             </Link>
-            <p className="text-sm text-slate-400 leading-relaxed mb-6">
-              Manufacturer of premium BOPP packaging tapes and industrial packaging solutions.
+
+            <p className="text-xs text-slate-400 leading-relaxed mb-5">
+              Manufacturer of BOPP tapes, bubble wrap, stretch film, desiccant pouches, safety PPE,
+              swimming pool chemicals & all types of packing material, fasteners and minerals.
               Distributed across India by Gayatri Enterprises.
             </p>
-            <div className="space-y-2.5 text-sm">
-              <a href="tel:+917720990081" className="flex items-center gap-2 text-slate-400 hover:text-brand-400 transition-colors">
+
+            {/* Contact details from visiting card */}
+            <div className="space-y-3 text-sm">
+              <a href="tel:+919552877000" className="flex items-center gap-2 text-slate-400 hover:text-brand-400 transition-colors">
                 <Phone className="h-4 w-4 text-brand-500 shrink-0" />
-                +91 77209 90081
+                +91 95528 77000
               </a>
-              <a href="mailto:info@sppackwell.com" className="flex items-center gap-2 text-slate-400 hover:text-brand-400 transition-colors">
+              <a href="tel:+918983377000" className="flex items-center gap-2 text-slate-400 hover:text-brand-400 transition-colors">
+                <Phone className="h-4 w-4 text-brand-500 shrink-0" />
+                +91 89833 77000
+              </a>
+              <a href="mailto:sp.packwell1@gmail.com" className="flex items-center gap-2 text-slate-400 hover:text-brand-400 transition-colors">
                 <Mail className="h-4 w-4 text-brand-500 shrink-0" />
-                info@sppackwell.com
+                sp.packwell1@gmail.com
               </a>
               <div className="flex items-start gap-2 text-slate-400">
                 <MapPin className="h-4 w-4 text-brand-500 shrink-0 mt-0.5" />
-                <span>Maharashtra, India</span>
+                <div className="text-xs leading-relaxed">
+                  <div className="font-medium text-slate-300 mb-0.5">Workshop:</div>
+                  X-340, Phase No 3, Shop No 10/21/22,<br />
+                  Behind Dreamline Hotel, Bajaj Nagar,<br />
+                  Waluj MIDC, Aurangabad – 431136
+                </div>
               </div>
+              <div className="flex items-start gap-2 text-slate-400">
+                <MapPin className="h-4 w-4 text-brand-500 shrink-0 mt-0.5" />
+                <div className="text-xs leading-relaxed">
+                  <div className="font-medium text-slate-300 mb-0.5">Office:</div>
+                  12th Scheme, Shivaji Nagar,<br />
+                  Opp Morya Mangal Karyalaya,<br />
+                  Aurangabad, Maharashtra
+                </div>
+              </div>
+            </div>
+
+            {/* Owner name */}
+            <div className="mt-4 text-xs text-slate-500">
+              Proprietor: <span className="text-slate-300 font-medium">Mr. Sunil Riswal</span>
             </div>
           </div>
 
@@ -95,7 +130,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-white mb-4">Products</h4>
             <ul className="space-y-2.5">
-              {categoryMeta.slice(0, 6).map((cat) => (
+              {categoryMeta.slice(0, 8).map((cat) => (
                 <li key={cat.id}>
                   <Link
                     href={`/products?category=${cat.id}`}
@@ -151,6 +186,19 @@ export default function Footer() {
                 Wholesale · Regional Sales · Customer Support
               </div>
             </div>
+
+            {/* Key Clients */}
+            <div className="mt-4 p-4 rounded-xl bg-slate-800 border border-slate-700">
+              <div className="text-xs font-semibold text-brand-400 uppercase tracking-wide mb-2">
+                Trusted By
+              </div>
+              <div className="space-y-1 text-xs text-slate-400">
+                <div>🏨 Hyatt Place Aurangabad</div>
+                <div>🏨 Lemon Tree Hotels</div>
+                <div>⚡ Bagla Electricals</div>
+                <div>🌱 Ulik Agritech Pvt. Ltd.</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -159,12 +207,12 @@ export default function Footer() {
       <div className="border-t border-slate-800">
         <div className="container-max px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-slate-500">
-            © {new Date().getFullYear()} SP Packwell. All rights reserved. Distributed by Gayatri Enterprises.
+            © {new Date().getFullYear()} SP Packwell. All rights reserved. Proprietor: Mr. Sunil Riswal. Distributed by Gayatri Enterprises.
           </p>
           <div className="flex items-center gap-4 text-xs text-slate-500">
             <Link href="/privacy" className="hover:text-slate-300 transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-slate-300 transition-colors">Terms</Link>
-            <span>GST: 27XXXXX0000X1ZX</span>
+            <span>Waluj MIDC, Aurangabad, MH 431136</span>
           </div>
         </div>
       </div>

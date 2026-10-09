@@ -82,7 +82,12 @@ export function getInitials(name: string): string {
     .slice(0, 2);
 }
 
-export const WHATSAPP_NUMBER = "917720990081";
-export const COMPANY_EMAIL = "info@sppackwell.com";
-export const COMPANY_PHONE = "+91 77209 90081";
+export const WHATSAPP_NUMBER = "919552877000";
+export const WHATSAPP_NUMBER_2 = "918983377000";
+export const COMPANY_EMAIL = "sp.packwell1@gmail.com";
+export const COMPANY_PHONE = "+91 95528 77000";
+export const COMPANY_PHONE_2 = "+91 89833 77000";
+export const COMPANY_OWNER = "Mr. Sunil Riswal";
+export const COMPANY_ADDRESS_WORKSHOP = "X-340, Phase No 3, Shop No 10/21/22, Behind Dreamline Hotel, Bajaj Nagar, Waluj MIDC, Aurangabad – 431136";
+export const COMPANY_ADDRESS_OFFICE = "12th Scheme, Shivaji Nagar, Opp Morya Mangal Karyalaya, Aurangabad, Maharashtra";
 export const GST_RATE = 18;

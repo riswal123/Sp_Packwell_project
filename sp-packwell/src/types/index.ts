@@ -42,7 +42,12 @@ export type ProductCategory =
   | "bopp-floor"
   | "printed-tape"
   | "jumbo-rolls"
+  | "bubble-wrap"
+  | "stretch-film"
+  | "strapping"
   | "desiccant-pouches"
+  | "safety-ppe"
+  | "swimming-pool"
   | "industrial";
 
 export interface CategoryMeta {
@@ -51,6 +56,7 @@ export interface CategoryMeta {
   description: string;
   icon: string;
   color: string;
+  image?: string;
   count?: number;
 }
 

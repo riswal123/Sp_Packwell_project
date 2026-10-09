@@ -2,11 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Menu, X, ShoppingCart, Phone, ChevronDown,
-  Package, Sun, Moon, Search, MessageCircle
+  Sun, Moon, MessageCircle
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
@@ -51,10 +52,13 @@ export default function Navbar() {
       {/* Top bar */}
       <div className="hidden lg:block bg-brand-600 text-white text-xs py-1.5">
         <div className="container-max px-4 flex items-center justify-between">
-          <span>🏭 Manufacturer: SP Packwell | 🤝 Distributor: Gayatri Enterprises</span>
+          <span>🏭 Manufacturer: SP Packwell, Aurangabad | 🤝 Distributor: Gayatri Enterprises</span>
           <div className="flex items-center gap-4">
-            <a href={`tel:+917720990081`} className="flex items-center gap-1 hover:text-brand-200 transition-colors">
-              <Phone className="h-3 w-3" /> +91 77209 90081
+            <a href="tel:+919552877000" className="flex items-center gap-1 hover:text-brand-200 transition-colors">
+              <Phone className="h-3 w-3" /> +91 95528 77000
+            </a>
+            <a href="tel:+918983377000" className="flex items-center gap-1 hover:text-brand-200 transition-colors">
+              <Phone className="h-3 w-3" /> +91 89833 77000
             </a>
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hello SP Packwell, I need a quote`}
@@ -71,17 +75,24 @@ export default function Navbar() {
       {/* Main nav */}
       <nav className="container-max px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-lg bg-brand-500 flex items-center justify-center shadow-sm group-hover:shadow-brand-glow transition-shadow">
-              <Package className="h-5 w-5 text-white" />
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="relative w-10 h-10 shrink-0">
+              <Image
+                src="/images/logo.jpg"
+                alt="SP Packwell Logo"
+                fill
+                className="object-contain rounded"
+                priority
+              />
             </div>
             <div className="hidden sm:block">
               <div className="font-display font-bold text-lg leading-tight text-foreground">
                 SP Packwell
               </div>
               <div className="text-[10px] text-muted-foreground leading-tight">
-                Premium Packaging Solutions
+                Manufacturer of BOPP Tapes
               </div>
             </div>
           </Link>
@@ -243,9 +254,15 @@ export default function Navbar() {
                   </Link>
                 </Button>
               </div>
-              <div className="flex items-center gap-3 pt-2 text-sm text-muted-foreground">
-                <a href="tel:+917720990081" className="flex items-center gap-1 hover:text-brand-600">
-                  <Phone className="h-3.5 w-3.5" /> +91 77209 90081
+              <div className="flex flex-col gap-1 pt-2 text-sm text-muted-foreground">
+                <a href="tel:+919552877000" className="flex items-center gap-1.5 hover:text-brand-600">
+                  <Phone className="h-3.5 w-3.5" /> +91 95528 77000
+                </a>
+                <a href="tel:+918983377000" className="flex items-center gap-1.5 hover:text-brand-600">
+                  <Phone className="h-3.5 w-3.5" /> +91 89833 77000
+                </a>
+                <a href="mailto:sp.packwell1@gmail.com" className="text-xs text-muted-foreground hover:text-brand-600">
+                  sp.packwell1@gmail.com
                 </a>
               </div>
             </div>

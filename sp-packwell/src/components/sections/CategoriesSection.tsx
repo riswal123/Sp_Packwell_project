@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Layers } from "lucide-react";
 import { categoryMeta } from "@/data/products";
@@ -51,22 +52,47 @@ export default function CategoriesSection() {
             >
               <Link
                 href={`/products?category=${cat.id}`}
-                className="group block bg-card border border-border rounded-xl p-5 card-hover text-center"
+                className="group block bg-card border border-border rounded-xl overflow-hidden card-hover"
               >
-                <div className={cn(
-                  "w-14 h-14 rounded-xl bg-gradient-to-br flex items-center justify-center mx-auto mb-3 text-2xl",
-                  cat.color
-                )}>
-                  {cat.icon}
+                {/* Product image */}
+                <div className="relative h-36 overflow-hidden bg-muted/40">
+                  {cat.image ? (
+                    <Image
+                      src={cat.image}
+                      alt={cat.label}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className={cn(
+                      "w-full h-full bg-gradient-to-br flex items-center justify-center text-4xl",
+                      cat.color
+                    )}>
+                      {cat.icon}
+                    </div>
+                  )}
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  {/* Icon badge */}
+                  <div className={cn(
+                    "absolute top-2 right-2 w-8 h-8 rounded-lg bg-gradient-to-br flex items-center justify-center text-sm shadow-md",
+                    cat.color
+                  )}>
+                    {cat.icon}
+                  </div>
                 </div>
-                <h3 className="font-semibold text-sm text-foreground group-hover:text-brand-600 transition-colors mb-1 line-clamp-2">
-                  {cat.label}
-                </h3>
-                <p className="text-xs text-muted-foreground line-clamp-2 mb-3">
-                  {cat.description}
-                </p>
-                <div className="flex items-center justify-center gap-1 text-xs text-brand-600 font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                  View <ArrowRight className="h-3 w-3" />
+
+                {/* Text */}
+                <div className="p-4">
+                  <h3 className="font-semibold text-sm text-foreground group-hover:text-brand-600 transition-colors mb-1 line-clamp-1">
+                    {cat.label}
+                  </h3>
+                  <p className="text-xs text-muted-foreground line-clamp-2 mb-3">
+                    {cat.description}
+                  </p>
+                  <div className="flex items-center gap-1 text-xs text-brand-600 font-medium">
+                    View Products <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
               </Link>
             </motion.div>
