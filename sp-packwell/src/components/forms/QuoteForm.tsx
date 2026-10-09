@@ -77,9 +77,8 @@ export default function QuoteForm() {
   const onSubmit = async (data: QuoteFormData) => {
     setLoading(true);
     try {
-      // Simulate API call
+      // Simulate API call — replace with real API route when backend is ready
       await new Promise((resolve) => setTimeout(resolve, 1500));
-      console.log("Quote submitted:", { ...data, items });
       setSubmitted(true);
       toast.success("Quote request submitted!", {
         description: "Our team will contact you within 4 business hours.",

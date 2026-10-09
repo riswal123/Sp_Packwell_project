@@ -61,7 +61,7 @@ export default function WhatsAppButton() {
               </div>
               <div className="mt-3 pt-3 border-t border-border flex items-center gap-2">
                 <a
-                  href="tel:+917720990081"
+                  href="tel:+919552877000"
                   className="flex-1 flex items-center justify-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground border border-border rounded-lg py-2 transition-colors"
                 >
                   <Phone className="h-3.5 w-3.5" /> Call Us

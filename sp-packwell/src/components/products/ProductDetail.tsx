@@ -259,7 +259,7 @@ export default function ProductDetail({ product }: Props) {
                 </a>
               </Button>
               <Button asChild size="lg" variant="outline" className="flex-1">
-                <a href="tel:+917720990081">
+                <a href="tel:+919552877000">
                   <Phone className="h-4 w-4" /> Call Us
                 </a>
               </Button>

@@ -65,27 +65,27 @@ export default function QuotePage() {
               </h3>
               <div className="space-y-3">
                 <a
-                  href="https://wa.me/917720990081?text=Hello SP Packwell, I need a bulk pricing quote"
+                  href="https://wa.me/919552877000?text=Hello SP Packwell, I need a bulk pricing quote"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 bg-green-500 text-white rounded-lg px-4 py-3 text-sm font-medium hover:bg-green-600 transition-colors"
                 >
                   <span className="text-lg">💬</span>
-                  WhatsApp: +91 77209 90081
+                  WhatsApp: +91 95528 77000
                 </a>
                 <a
-                  href="tel:+917720990081"
+                  href="tel:+919552877000"
                   className="flex items-center gap-3 bg-white dark:bg-slate-800 border border-border rounded-lg px-4 py-3 text-sm font-medium hover:bg-muted transition-colors"
                 >
                   <span className="text-lg">📞</span>
-                  Call: +91 77209 90081
+                  Call: +91 95528 77000
                 </a>
                 <a
-                  href="mailto:info@sppackwell.com"
+                  href="mailto:sp.packwell1@gmail.com"
                   className="flex items-center gap-3 bg-white dark:bg-slate-800 border border-border rounded-lg px-4 py-3 text-sm font-medium hover:bg-muted transition-colors"
                 >
                   <span className="text-lg">📧</span>
-                  info@sppackwell.com
+                  sp.packwell1@gmail.com
                 </a>
               </div>
             </div>

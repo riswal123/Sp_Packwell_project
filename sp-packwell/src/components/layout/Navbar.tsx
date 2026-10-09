@@ -13,6 +13,7 @@ import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { cn, WHATSAPP_NUMBER } from "@/lib/utils";
 import { categoryMeta } from "@/data/products";
+import { useCartStore } from "@/store/cartStore";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -29,6 +30,7 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
+  const itemCount = useCartStore((s) => s.itemCount);
 
   useEffect(() => {
     setMounted(true);
@@ -199,9 +201,11 @@ export default function Navbar() {
               aria-label="Cart"
             >
               <ShoppingCart className="h-4 w-4" />
-              <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-brand-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
-                0
-              </span>
+              {itemCount > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-brand-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                  {itemCount > 99 ? "99+" : itemCount}
+                </span>
+              )}
             </Link>
 
             {/* Quote CTA */}
